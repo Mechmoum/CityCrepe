@@ -1,0 +1,309 @@
+/* Animations for City Crêpe */
+
+/* Logo pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.logo img {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Store stripe shine animation */
+@keyframes stripe-shine {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+.store-stripe {
+  background-size: 200% 100%;
+  animation: stripe-shine 15s linear infinite;
+}
+
+/* Decorative elements animations */
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+.decorative-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+.decorative-element:nth-child(2n) {
+  animation-duration: 8s;
+}
+
+.decorative-element:nth-child(3n) {
+  animation-duration: 10s;
+  animation-delay: 2s;
+}
+
+/* Menu item hover animation */
+.menu-item:hover {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(-2deg); }
+  25% { transform: rotate(3deg) translateY(-5px); }
+  50% { transform: rotate(-3deg) translateY(-8px); }
+  75% { transform: rotate(2deg) translateY(-10px); }
+  100% { transform: rotate(0deg) translateY(-10px); }
+}
+
+.menu-item:nth-child(even):hover {
+  animation: wiggle-even 0.5s ease-in-out;
+}
+
+@keyframes wiggle-even {
+  0% { transform: rotate(2deg); }
+  25% { transform: rotate(-3deg) translateY(-5px); }
+  50% { transform: rotate(3deg) translateY(-8px); }
+  75% { transform: rotate(-2deg) translateY(-10px); }
+  100% { transform: rotate(0deg) translateY(-10px); }
+}
+
+/* Fade in animation for page sections */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.4s; }
+section:nth-child(4) { animation-delay: 0.6s; }
+section:nth-child(5) { animation-delay: 0.8s; }
+section:nth-child(6) { animation-delay: 1s; }
+section:nth-child(7) { animation-delay: 1.2s; }
+
+/* Button hover animation */
+@keyframes button-glow {
+  0% {
+    box-shadow: 0 4px 15px rgba(123, 87, 178, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(123, 87, 178, 0.4);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(123, 87, 178, 0.2);
+  }
+}
+
+.cta-button:hover {
+  animation: button-glow 2s infinite;
+}
+
+/* Form input focus animations */
+@keyframes input-focus {
+  0% {
+    border-color: var(--primary);
+  }
+  50% {
+    border-color: var(--turquoise);
+  }
+  100% {
+    border-color: var(--primary);
+  }
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  animation: input-focus 3s infinite;
+}
+
+/* Mobile menu animation */
+@keyframes menu-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-menu.active {
+  animation: menu-slide-in 0.3s ease-out forwards;
+}
+
+/* Bubble animations for custom section background */
+@keyframes bubble-float {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(var(--translate-x)) scale(var(--scale));
+    opacity: 0;
+  }
+}
+
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: bubble-float var(--duration) linear infinite;
+  animation-delay: var(--delay);
+}
+
+/* Gallery item animation */
+@keyframes polaroid-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(var(--rotation));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(var(--rotation));
+  }
+}
+
+.gallery-item {
+  --rotation: -3deg;
+  animation: polaroid-in 0.5s ease-out forwards;
+}
+
+.gallery-item:nth-child(even) {
+  --rotation: 3deg;
+}
+
+.gallery-item:nth-child(2) { animation-delay: 0.1s; }
+.gallery-item:nth-child(3) { animation-delay: 0.2s; }
+.gallery-item:nth-child(4) { animation-delay: 0.3s; }
+.gallery-item:nth-child(5) { animation-delay: 0.4s; }
+.gallery-item:nth-child(6) { animation-delay: 0.5s; }
+
+/* Sprinkle decorations animation */
+@keyframes sprinkle-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.sprinkle {
+  position: absolute;
+  width: 15px;
+  height: 5px;
+  border-radius: 2px;
+  background-color: var(--color);
+  animation: sprinkle-rotate var(--duration) linear infinite;
+  animation-delay: var(--delay);
+}
+
+/* Loading animation for form submission */
+@keyframes loading-dots {
+  0%, 20% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  80%, 100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+.loading-dots span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--white);
+  margin: 0 3px;
+  animation: loading-dots 1.5s infinite;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Success check animation */
+@keyframes success-check {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.success-icon {
+  animation: success-check 0.5s ease-out forwards;
+}
+
+/* Page transition animation */
+@keyframes page-transition-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes page-transition-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.page-transition-out {
+  animation: page-transition-out 0.3s ease forwards;
+}
+
+.page-transition-in {
+  animation: page-transition-in 0.5s ease forwards;
+}
