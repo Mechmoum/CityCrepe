@@ -57,7 +57,7 @@ city-crepe/
 
 1. Clonez ce dépôt
    ```
-   git clone https://github.com/votre-username/city-crepe.git
+   git clone https://github.com/Mechmoum/city-crepe.git
    ```
 
 2. Ouvrez le fichier `index.html` dans votre navigateur
