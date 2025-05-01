@@ -14,25 +14,35 @@
 </head>
 <body>
   <header id="header">
-    <div class="store-stripe"></div>
     <div class="header-content">
       <div class="logo">
-        <a href="#"><img src="assets/images/logo.svg" alt="City Crêpe Logo"></a>
+        <a href="#"><img src="assets/images/logo.png" alt="City Crêpe Logo"></a>
       </div>
-      <nav>
-        <button class="menu-toggle" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <ul class="nav-menu">
-          <li><a href="#menu">MENU</a></li>
-          <li><a href="#custom">PERSONNALISER</a></li>
-          <li><a href="#about">À PROPOS</a></li>
-          <li><a href="#gallery">GALERIE</a></li>
-          <li><a href="#contact">CONTACT</a></li>
-        </ul>
-      </nav>
+<!-- Section à modifier dans le nav du header -->
+<nav>
+  <button class="menu-toggle" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-menu">
+    <li><a href="#menu">MENU</a></li>
+    <li><a href="#custom">PERSONNALISER</a></li>
+    <li><a href="#about">À PROPOS</a></li>
+    <li><a href="#gallery">GALERIE</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+    <!-- Bouton "Nos Réseaux" modifié -->
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link social-button">NOS RÉSEAUX</a>
+      <ul class="dropdown-menu social-icons">
+        <li><a href="https://instagram.com" target="_blank"><img src="assets/images/instagram-icon.svg" alt="Instagram"></a></li>
+        <li><a href="https://tiktok.com" target="_blank"><img src="assets/images/tiktok-icon.svg" alt="TikTok"></a></li>
+        <li><a href="https://snapchat.com" target="_blank"><img src="assets/images/snapchat-icon.svg" alt="Snapchat"></a></li>
+        <li><a href="https://twitter.com" target="_blank"><img src="assets/images/twitter-icon.svg" alt="Twitter"></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
   </header>
 
@@ -64,6 +74,10 @@
       <div class="container">
         <h2>PERSONNALISEZ VOTRE CRÊPE</h2>
         <p>Composez la crêpe de vos rêves avec nos ingrédients frais</p>
+        <div class="menu-filter">
+          <button class="filter-btn active" data-filter="sweet">Sucrées</button>
+          <button class="filter-btn" data-filter="savory">Salées</button>
+        </div>
         <div class="custom-builder">
           <!-- Customization options will be added dynamically with JavaScript -->
         </div>
@@ -76,11 +90,12 @@
         <h2>NOTRE HISTOIRE</h2>
         <div class="about-content">
           <div class="about-image">
-            <img src="assets/images/about.jpg" alt="L'équipe City Crêpe">
+            <img src="assets/images/city crépe.jpg" alt="L'équipe City Crêpe">
           </div>
           <div class="about-text">
-            <p>City Crêpe est né d'une passion pour les crêpes gourmandes et l'envie de créer un lieu joyeux et instagrammable au cœur de la ville. Notre mission : réinventer la crêpe traditionnelle avec une touche moderne et cute!</p>
-            <p>Chaque jour, nous préparons nos pâtes à crêpes maison et sélectionnons des ingrédients frais et de qualité pour vous offrir une expérience gourmande inoubliable.</p>
+            <p>Yacine, Franco-Tunisien au grand cœur, a longtemps travaillé comme brancardier à la Salpêtrière. Ce parcours l’a marqué : plus que la routine, ce sont les rencontres humaines qui le nourrissent.</p>
+            <p>En 2021, avec peu de moyens mais une grande détermination, il décide de tout miser sur un rêve : créer un lieu chaleureux, à son image. Il fonde City Crêpe sur l’avenue de Fontainebleau au Kremlin-Bicêtre, un endroit authentique où se mêlent générosité, convivialité et saveurs sucrées-salées.</p>
+             <p>Plus qu’une crêperie, City Crêpe, c’est un lieu de partage, né de la résilience, des racines, et d’une philosophie simple : donner le meilleur, avec amour et sincérité.</p>
           </div>
         </div>
       </div>
@@ -94,83 +109,78 @@
         </div>
       </div>
     </section>
-
-    <section id="contact" class="contact-section">
-      <div class="container">
-        <h2>NOUS CONTACTER</h2>
-        <div class="contact-content">
-          <div class="contact-info">
-            <div class="info-item">
-              <h3>Adresse</h3>
-              <p>123 Rue des Gourmands<br>75000 Paris</p>
-            </div>
-            <div class="info-item">
-              <h3>Horaires</h3>
-              <p>Lun-Ven: 11h-21h<br>Sam-Dim: 10h-22h</p>
-            </div>
-            <div class="info-item">
-              <h3>Contact</h3>
-              <p>contact@citycrepe.fr<br>01 23 45 67 89</p>
-            </div>
-          </div>
-          <div class="contact-form">
-            <form id="contactForm">
-              <div class="form-group">
-                <label for="name">Nom</label>
-                <input type="text" id="name" name="name" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-              </div>
-              <button type="submit" class="cta-button">ENVOYER</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">
-        <img src="assets/images/logo.svg" alt="City Crêpe Logo">
-      </div>
-      <div class="footer-links">
-        <div class="footer-section">
-          <h3>Navigation</h3>
-          <ul>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#custom">Personnaliser</a></li>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+<!-- Footer City Crêpe correspondant à l'image partagée -->
+<footer id="contact"  class="city-crepe-footer">
+  
+  <div class="footer-content">
+    <!-- Colonne Logo et texte -->
+    <div class="footer-col brand-col">
+      <h2 class="footer-logo">CITY CRÊPE</h2>
+      <p class="footer-desc">
+        ✨ Crêpes, bubble waffles, smoothie & milkshakes : composez votre plaisir ! ✨
+      </p>
+    </div>
+
+        <!-- Colonne Liens -->
+   <div class="footer-col links-col">
+     <h3 class="footer-title">Pages</h3>
+     <nav class="footer-nav">
+       <ul>
+         <li><a href="#menu">Menu</a></li>
+         <li><a href="#custom">Personnaliser</a></li>
+         <li><a href="#about">À propos</a></li>
+         <li><a href="#gallery">Galerie</a></li>
+         <li><a href="#contact">Contact</a></li>
+       </ul>
+     </nav>
+   </div>
+
+    <!-- Colonne Adresse et Contact -->
+    <div class="footer-col info-col">
+      <h3 class="footer-title">NOTRE ADRESSE</h3>
+      <address class="footer-address">
+        19 avenue de Fontainebleau <br>
+        Le Kremlin-Bicêtre
+      </address>
+      
+      <h3 class="footer-title contact-title">CONTACT</h3>
+      <p class="footer-email">contact@citycrepe.fr</p>
+      <p class="footer-phone">01 23 45 67 89</p>
+      <h3 class="footer-title hours-title">HORAIRES</h3>
+      <p class="footer-hours">📅 Ouvert 7/7 | ⏰ 11h - 4h</p>
+    </div>
+
+
+
+    <!-- Colonne Newsletter et Social -->
+    <div class="footer-col connect-col">
+      <h3 class="footer-title">NEWSLETTER</h3>
+      <form class="footer-form">
+        <div class="form-group">
+          <input type="email" placeholder="Votre email">
+          <button type="submit" class="submit-arrow">→</button>
         </div>
-        <div class="footer-section">
-          <h3>Suivez-nous</h3>
-          <div class="social-links">
-            <a href="#" aria-label="Instagram">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#FFFFFF"/>
-              </svg>
-            </a>
-            <a href="#" aria-label="Facebook">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.032 23v-8.532h-3.032v-3.468h3.032v-2.599c0-3.001 1.832-4.632 4.51-4.632 1.283 0 2.387.096 2.708.139v3.139h-1.859c-1.458 0-1.74.693-1.74 1.711v2.242h3.477l-.454 3.468h-3.023v8.532h-3.619z" fill="#FFFFFF"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 City Crêpe. Tous droits réservés.</p>
+      </form>
+      
+      <h3 class="footer-title social-title">SUIVEZ-NOUS</h3>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/citycrepe94" target="_blank" class="social-icon" tabindex="0">
+          <img src="assets/images/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.snapchat.com/add/citycrepe94" target="_blank" class="social-icon" tabindex="0">
+          <img src="assets/images/snapchat.svg" alt="Snapchat">
+        </a>
       </div>
     </div>
-  </footer>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>City Crêpe © 2025 - Tous Droits Réservés</p>
+  </div>
+</footer>
 
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>

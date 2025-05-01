@@ -9,7 +9,7 @@ const menuItems = [
     title: "Classique Sucre",
     description: "Crêpe traditionnelle au sucre fin",
     price: "4.50",
-    image: "assets/images/menu/classic-sugar.jpg",
+    image: "assets/images/crépe_fraise.jpeg",
     category: "sweet",
     isNew: false
   },
@@ -18,7 +18,7 @@ const menuItems = [
     title: "Nutella Fraise",
     description: "Crêpe au Nutella avec fraises fraîches",
     price: "7.90",
-    image: "assets/images/menu/nutella-strawberry.jpg",
+    image: "assets/images/crépe_fraise.jpeg",
     category: "sweet",
     isNew: true
   },
@@ -27,7 +27,7 @@ const menuItems = [
     title: "Caramel Beurre Salé",
     description: "Crêpe au caramel au beurre salé maison",
     price: "6.90",
-    image: "assets/images/menu/salted-caramel.jpg",
+    image: "assets/images/crépe_fraise.jpeg",
     category: "sweet",
     isNew: false
   },
@@ -36,7 +36,7 @@ const menuItems = [
     title: "Jambon Fromage",
     description: "Crêpe salée avec jambon et fromage fondu",
     price: "8.50",
-    image: "assets/images/menu/ham-cheese.jpg",
+    image: "assets/images/crépe_fraise.jpeg",
     category: "savory",
     isNew: false
   },
@@ -45,7 +45,7 @@ const menuItems = [
     title: "Complète",
     description: "Crêpe salée avec œuf, jambon et fromage",
     price: "9.90",
-    image: "assets/images/menu/complete.jpg",
+    image: "assets/images/crépe_fraise.jpeg",
     category: "savory",
     isNew: false
   },
@@ -54,7 +54,7 @@ const menuItems = [
     title: "Végétarienne",
     description: "Crêpe aux légumes de saison et fromage",
     price: "9.50",
-    image: "assets/images/menu/vegetable.jpg",
+    image: "assets/images/crépe_fraise.jpeg",
     category: "savory",
     isNew: false
   },
@@ -63,7 +63,7 @@ const menuItems = [
     title: "City Rainbow",
     description: "Crêpe colorée aux fruits et crème fouettée",
     price: "10.90",
-    image: "assets/images/menu/rainbow.jpg",
+    image: "assets/images/crépe_fraise.jpeg",
     category: "specials",
     isNew: true
   },
@@ -72,94 +72,114 @@ const menuItems = [
     title: "Bubble Dream",
     description: "Crêpe garnie de bubble tea et fruits exotiques",
     price: "11.90",
-    image: "assets/images/menu/bubble.jpg",
+    image: "assets/images/crépe_fraise.jpeg",
     category: "specials",
     isNew: true
   }
 ];
 
-// Ingredients data for custom crepe builder
+// Updated ingredient list for customization
 const ingredients = [
-  {
-    id: 1,
-    name: "Nutella",
-    image: "assets/images/ingredients/nutella.jpg",
-    category: "sweet"
-  },
-  {
-    id: 2,
-    name: "Fraises",
-    image: "assets/images/ingredients/strawberry.jpg",
-    category: "sweet"
-  },
-  {
-    id: 3,
-    name: "Banane",
-    image: "assets/images/ingredients/banana.jpg",
-    category: "sweet"
-  },
-  {
-    id: 4,
-    name: "Caramel",
-    image: "assets/images/ingredients/caramel.jpg",
-    category: "sweet"
-  },
-  {
-    id: 5,
-    name: "Chantilly",
-    image: "assets/images/ingredients/cream.jpg",
-    category: "sweet"
-  },
-  {
-    id: 6,
-    name: "Jambon",
-    image: "assets/images/ingredients/ham.jpg",
-    category: "savory"
-  },
-  {
-    id: 7,
-    name: "Fromage",
-    image: "assets/images/ingredients/cheese.jpg",
-    category: "savory"
-  },
-  {
-    id: 8,
-    name: "Œuf",
-    image: "assets/images/ingredients/egg.jpg",
-    category: "savory"
-  }
+  // Crêpe Salée – Garniture principale
+  { id: 1, name: "Poulet mariné", category: "salty-main", price: 1.2 },
+  { id: 2, name: "Kefta", category: "salty-main", price: 1.2 },
+  { id: 3, name: "Jambon de dinde", category: "salty-main", price: 1.2 },
+  { id: 4, name: "Merguez", category: "salty-main", price: 1.2 },
+  { id: 5, name: "Bacon", category: "salty-main", price: 1.2 },
+  { id: 6, name: "Lardons", category: "salty-main", price: 1.2 },
+  { id: 7, name: "Thon", category: "salty-main", price: 1.2 },
+  { id: 8, name: "Saucisses", category: "salty-main", price: 1.2 },
+  { id: 9, name: "Steak", category: "salty-main", price: 1.2 },
+  { id: 10, name: "Saumon", category: "salty-main", price: 2.0 },
+
+  // Crêpe Salée – Ingrédients au choix
+  { id: 11, name: "Tomate", category: "salty-choice", price: 0.7 },
+  { id: 12, name: "Pomme de terre", category: "salty-choice", price: 0.7 },
+  { id: 13, name: "Maïs", category: "salty-choice", price: 0.7 },
+  { id: 14, name: "Oignon", category: "salty-choice", price: 0.7 },
+  { id: 15, name: "Olives", category: "salty-choice", price: 0.7 },
+  { id: 16, name: "Poivron", category: "salty-choice", price: 0.7 },
+  { id: 17, name: "Champignons", category: "salty-choice", price: 0.7 },
+  { id: 18, name: "Avocat", category: "salty-special", price: 1.0 },
+  { id: 19, name: "Épinard", category: "salty-special", price: 1.0 },
+
+  // Crêpe Salée – Fromage au choix
+  { id: 20, name: "Cheddar", category: "cheese", price: 0.8 },
+  { id: 21, name: "Kiri", category: "cheese", price: 0.8 },
+  { id: 22, name: "Chèvre", category: "cheese", price: 0.8 },
+  { id: 23, name: "Mozzarella", category: "cheese", price: 0.8 },
+  { id: 24, name: "Raclette", category: "cheese", price: 0.8 },
+  { id: 25, name: "Vache qui rit", category: "cheese", price: 0.8 },
+  { id: 26, name: "Emmental", category: "cheese", price: 0.8 },
+  { id: 27, name: "Bleu", category: "cheese", price: 0.8 },
+
+  // Crêpe Sucrée – Fruits
+  { id: 28, name: "Banane", category: "sweet-fruit", price: 1.0 },
+  { id: 29, name: "Ananas", category: "sweet-fruit", price: 1.0 },
+  { id: 30, name: "Mangue", category: "sweet-fruit", price: 1.0 },
+  { id: 31, name: "Fraises", category: "sweet-fruit", price: 2.0 },
+
+  // Crêpe Sucrée – Nappages
+  { id: 32, name: "Nutella", category: "sweet-topping", price: 1.0 },
+  { id: 33, name: "Chocolat blanc", category: "sweet-topping", price: 1.0 },
+  { id: 34, name: "Caramel", category: "sweet-topping", price: 1.0 },
+  { id: 35, name: "Speculoos", category: "sweet-topping", price: 1.0 },
+  { id: 36, name: "Kinder", category: "sweet-topping", price: 1.0 },
+  { id: 37, name: "Confiture de fraise", category: "sweet-topping", price: 1.0 },
+  { id: 38, name: "Confiture d’abricot", category: "sweet-topping", price: 1.0 },
+  { id: 39, name: "Pâte à tartiner noisette", category: "sweet-topping", price: 1.0 },
+
+  // Crêpe Sucrée – Ingrédients
+  { id: 40, name: "Oréo", category: "sweet-ingredient", price: 1.0 },
+  { id: 41, name: "KitKat", category: "sweet-ingredient", price: 1.0 },
+  { id: 42, name: "Kinder Bueno", category: "sweet-ingredient", price: 1.0 },
+  { id: 43, name: "Twix", category: "sweet-ingredient", price: 1.0 },
+  { id: 44, name: "Snickers", category: "sweet-ingredient", price: 1.0 },
+  { id: 45, name: "Mars", category: "sweet-ingredient", price: 1.0 },
+  { id: 46, name: "Daim", category: "sweet-ingredient", price: 1.0 },
+  { id: 47, name: "Toblerone", category: "sweet-ingredient", price: 1.0 },
+  { id: 48, name: "Ferrero Rocher", category: "sweet-ingredient", price: 1.0 },
+  { id: 49, name: "M&M’s", category: "sweet-ingredient", price: 1.0 },
+  { id: 50, name: "Bounty", category: "sweet-ingredient", price: 1.0 },
+
+  // Crêpe Sucrée – Fruits secs
+  { id: 51, name: "Amandes", category: "sweet-nut", price: 0.5 },
+  { id: 52, name: "Noisettes", category: "sweet-nut", price: 0.5 },
+  { id: 53, name: "Noix", category: "sweet-nut", price: 0.5 },
+  { id: 54, name: "Cacahuètes", category: "sweet-nut", price: 0.5 },
+  { id: 55, name: "Pistaches", category: "sweet-nut", price: 0.5 },
 ];
 
 // Gallery data
 const galleryItems = [
   {
     id: 1,
-    image: "assets/images/gallery/gallery1.jpg",
+    image: "assets/images/gallry.webp",
     caption: "Notre spécialité rainbow"
   },
   {
     id: 2,
-    image: "assets/images/gallery/gallery2.jpg",
+    image: "assets/images/gallry.webp",
     caption: "Crêpe au caramel beurre salé"
   },
   {
     id: 3,
-    image: "assets/images/gallery/gallery3.jpg",
+    image: "assets/images/gallry.webp",
     caption: "L'intérieur de notre boutique"
   },
   {
     id: 4,
-    image: "assets/images/gallery/gallery4.jpg",
+    image: "assets/images/gallry.webp",
     caption: "Préparation de crêpes"
   },
   {
     id: 5,
-    image: "assets/images/gallery/gallery5.jpg",
+    image: "assets/images/gallry.webp",
     caption: "Notre équipe souriante"
   },
   {
     id: 6,
-    image: "assets/images/gallery/gallery6.jpg",
+    image: "assets/images/gallry.webp",
     caption: "Crêpe bubble dream"
   }
 ];
@@ -281,6 +301,66 @@ function displayIngredients() {
     customBuilder.appendChild(ingredientElement);
   });
 }
+
+// Function to display ingredients for sweet or salty crepes
+function displayIngredientsByCategory(category) {
+  if (!customBuilder) return;
+
+  // Clear current ingredients
+  customBuilder.innerHTML = '';
+
+  // Filter ingredients based on selected category
+  const filteredIngredients = ingredients.filter(ingredient => ingredient.category.startsWith(category));
+
+  // Create HTML for each ingredient
+  filteredIngredients.forEach(ingredient => {
+    const ingredientElement = document.createElement('div');
+    ingredientElement.classList.add('ingredient-item');
+    ingredientElement.dataset.id = ingredient.id;
+
+    ingredientElement.innerHTML = `
+      <p>${ingredient.name} (${ingredient.price}€)</p>
+    `;
+
+    ingredientElement.addEventListener('click', function() {
+      this.classList.toggle('selected');
+    });
+
+    customBuilder.appendChild(ingredientElement);
+  });
+}
+
+// Update event listeners for sweet and salty buttons
+document.addEventListener('DOMContentLoaded', function() {
+  const sweetButton = document.querySelector('.filter-btn[data-filter="sweet"]');
+  const saltyButton = document.querySelector('.filter-btn[data-filter="salty"]');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+
+  if (sweetButton) {
+    sweetButton.addEventListener('click', function() {
+      // Update active state
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      // Display sweet ingredients
+      displayIngredientsByCategory('sweet');
+    });
+  }
+
+  if (saltyButton) {
+    saltyButton.addEventListener('click', function() {
+      // Update active state
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      // Display salty ingredients
+      displayIngredientsByCategory('salty');
+    });
+  }
+
+  // Default to sweet ingredients on page load
+  displayIngredientsByCategory('sweet');
+});
 
 // Function to add all event listeners
 function addEventListeners() {
@@ -452,3 +532,40 @@ function initSmoothScrolling() {
     });
   });
 }
+
+// Ajouter à votre fichier main.js ou créer un nouveau fichier social-media.js
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Gestion du focus et du clic pour le bouton des réseaux sociaux
+  const socialButton = document.querySelector('.social-button');
+  const socialIcons = document.querySelector('.social-icons');
+  
+  if (socialButton && socialIcons) {
+    // Rendre le menu accessible au clavier
+    socialButton.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleSocialIcons();
+      }
+    });
+    
+    // Gérer le clic sur le bouton
+    socialButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      toggleSocialIcons();
+    });
+    
+    // Fonction pour basculer l'affichage des icônes
+    function toggleSocialIcons() {
+      const isVisible = getComputedStyle(socialIcons).display !== 'none';
+      socialIcons.style.display = isVisible ? 'none' : 'flex';
+    }
+    
+    // Fermer le menu si on clique ailleurs sur la page
+    document.addEventListener('click', function(e) {
+      if (!socialButton.contains(e.target) && !socialIcons.contains(e.target)) {
+        socialIcons.style.display = 'none';
+      }
+    });
+  }
+});

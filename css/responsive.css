@@ -327,6 +327,7 @@
   
   .menu-item-image {
     height: 120px;
+    justify-content: center;
   }
   
   .menu-item-content {
