@@ -43,10 +43,12 @@
 
   <main>
     <section id="hero" class="hero-section">
+      <!-- Conteneur pour l'effet de pluie de sucre -->
+      <div class="sugar-rain-container" id="sugarRainContainer"></div>
       <div class="hero-content">
         <h1>DES CRÊPES GOURMANDES ET CUTE</h1>
         <p class="subtitle">Une expérience délicieuse à partager</p>
-        <a href="#menu" class="cta-button">DÉCOUVRIR LE MENU</a>
+        <a href="#menu" class="cta-button" id="discoverMenuBtn">DÉCOUVRIR LE MENU</a>
       </div>
     </section>
 
@@ -305,6 +307,110 @@
 
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Éléments DOM pour l'effet de pluie de sucre
+      const sugarRainContainer = document.getElementById('sugarRainContainer');
+      const discoverMenuBtn = document.getElementById('discoverMenuBtn');
+      const heroSection = document.getElementById('hero');
+      
+      // Variable pour suivre l'état de la cascade
+      let isCascading = false;
+      
+      // Fonction pour créer une particule de sucre
+      function createSugarParticle(x, y, size = null, duration = null) {
+        const particle = document.createElement('div');
+        particle.classList.add('sugar-particle');
+        
+        // Taille aléatoire si non spécifiée
+        const particleSize = size || Math.random() * 4 + 1;
+        particle.style.width = `${particleSize}px`;
+        particle.style.height = `${particleSize}px`;
+        
+        // Position
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+        
+        // Durée de chute aléatoire si non spécifiée
+        const fallDuration = duration || Math.random() * 3 + 2;
+        particle.style.animation = `sugar-fall ${fallDuration}s linear forwards`;
+        
+        // Ajouter au conteneur
+        sugarRainContainer.appendChild(particle);
+        
+        // Supprimer après l'animation
+        setTimeout(() => {
+          particle.remove();
+        }, fallDuration * 1000);
+      }
+      
+      // Fonction pour créer l'effet de rideau de sucre
+      function createSugarCurtain() {
+        // Créer l'élément de rideau s'il n'existe pas
+        let sugarCurtain = document.querySelector('.sugar-curtain');
+        if (!sugarCurtain) {
+          sugarCurtain = document.createElement('div');
+          sugarCurtain.classList.add('sugar-curtain');
+          sugarRainContainer.appendChild(sugarCurtain);
+        }
+        
+        // Activer l'animation
+        sugarCurtain.classList.remove('active');
+        // Force reflow
+        void sugarCurtain.offsetWidth;
+        sugarCurtain.classList.add('active');
+      }
+      
+      // Fonction pour créer une cascade de sucre intense
+      function createSugarCascade() {
+        if (isCascading) return;
+        isCascading = true;
+        
+        // Activer l'effet de rideau
+        createSugarCurtain();
+        
+        // Créer une pluie dense de particules
+        const screenWidth = window.innerWidth;
+        
+        // Créer beaucoup de particules
+        for (let i = 0; i < 800; i++) {
+          setTimeout(() => {
+            const posX = Math.random() * screenWidth;
+            const posY = Math.random() * 100 - 100; // Au-dessus de l'écran
+            const size = Math.random() * 6 + 1; // Tailles variées
+            const duration = Math.random() * 4 + 3; // Chute plus lente
+            
+            createSugarParticle(posX, posY, size, duration);
+          }, Math.random() * 2000); // Étalées sur 2 secondes
+        }
+        
+        // Réinitialiser l'état après un délai
+        setTimeout(() => {
+          isCascading = false;
+        }, 2000);
+      }
+      
+      // Déclencher l'effet de pluie dès le chargement de la page (si la section hero est visible)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            createSugarCascade();
+            // Arrêter d'observer après le premier déclenchement
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
+      
+      observer.observe(heroSection);
+      
+      // Déclencher l'effet de pluie au clic sur le bouton "DÉCOUVRIR LE MENU"
+      discoverMenuBtn.addEventListener('click', function(e) {
+        // Ne pas empêcher le comportement par défaut pour permettre le défilement jusqu'à la section menu
+        createSugarCascade();
+      });
+    });
+  </script>
 </body>
 
 </html>
@@ -335,6 +441,76 @@
 
 .compose-icon {
   font-size: 16px;
+}
+
+/* Styles pour l'effet de pluie de sucre */
+.sugar-rain-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sugar-particle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sugar-fall linear forwards;
+}
+
+@keyframes sugar-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.sugar-curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.7) 20%,
+      rgba(255, 255, 255, 0.4) 40%,
+      rgba(255, 255, 255, 0.2) 60%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sugar-curtain.active {
+  animation: sugar-pour 2s ease-in forwards;
+}
+
+@keyframes sugar-pour {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(-90%);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
 }
 
 /* Styles pour la section Témoignages */
