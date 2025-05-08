@@ -1,157 +1,242 @@
 /**
- * Animations for City Crêpe website
+ * City Crêpe - Script d'animations
+ * Contient les effets visuels et animations du site
  */
 
-// DOM elements
-const heroSection = document.getElementById('hero');
-const sections = document.querySelectorAll('section');
-
-// Initialize animations when DOM is fully loaded
+// Initialiser les animations lorsque le DOM est chargé
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize section animations with IntersectionObserver
+  // Initialiser les animations de section avec IntersectionObserver
   initSectionAnimations();
   
-  // Initialize parallax effect for hero section
+  // Initialiser l'effet parallaxe pour la section hero
   initParallaxEffect();
   
-  // Initialize floating elements animation
+  // Initialiser l'animation des éléments flottants
   initFloatingElements();
   
-  // Initialize menu item animations
-  initMenuItemAnimations();
+  // Initialiser l'animation de la pluie de sucre
+  initSugarRainAnimation();
+  
+  // Initialiser l'animation pour l'indicateur de défilement
+  initScrollIndicator();
+  
+  // Créer les formes animées en arrière-plan
+  createBackgroundShapes();
 });
 
-// Function to initialize section animations with IntersectionObserver
+/**
+ * Initialise les animations de section avec IntersectionObserver
+ */
 function initSectionAnimations() {
-  // Check if IntersectionObserver is supported
+  // Vérifier si IntersectionObserver est pris en charge
   if ('IntersectionObserver' in window) {
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        // Add animation class when section comes into view
+        // Ajouter la classe d'animation lorsque la section devient visible
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view');
-          // Stop observing after animation is triggered
+          // Arrêter d'observer après le déclenchement de l'animation
           sectionObserver.unobserve(entry.target);
         }
       });
     }, {
       root: null, // viewport
-      threshold: 0.15, // 15% of the section must be visible
-      rootMargin: '0px' // no margin
+      threshold: 0.15, // 15% de la section doit être visible
+      rootMargin: '0px' // pas de marge
     });
     
-    // Observe all sections
+    // Observer toutes les sections
+    const sections = document.querySelectorAll('section');
     sections.forEach(section => {
-      // Reset opacity to allow for fade-in animation
+      // Réinitialiser l'opacité pour permettre l'animation de fondu
       section.style.opacity = '';
       sectionObserver.observe(section);
     });
   } else {
-    // Fallback for browsers that don't support IntersectionObserver
+    // Fallback pour les navigateurs qui ne prennent pas en charge IntersectionObserver
+    const sections = document.querySelectorAll('section');
     sections.forEach(section => {
       section.classList.add('in-view');
     });
   }
 }
 
-// Function to initialize parallax effect for hero section
+/**
+ * Initialise l'effet parallaxe pour la section hero
+ */
 function initParallaxEffect() {
+  const heroSection = document.getElementById('hero');
   if (!heroSection) return;
   
   window.addEventListener('scroll', () => {
     const scrollPosition = window.pageYOffset;
     
-    // Apply parallax effect to hero background
-    heroSection.style.backgroundPosition = `center ${scrollPosition * 0.4}px`;
-    
-    // Apply parallax effect to hero content
-    const heroContent = heroSection.querySelector('.hero-content');
-    if (heroContent) {
-      heroContent.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+    // Appliquer l'effet parallaxe à l'arrière-plan du hero
+    if (scrollPosition < heroSection.offsetHeight) {
+      heroSection.style.backgroundPosition = `center ${scrollPosition * 0.4}px`;
+      
+      // Appliquer l'effet parallaxe au contenu du hero
+      const heroContent = heroSection.querySelector('.hero-content');
+      if (heroContent) {
+        heroContent.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+      }
     }
   });
 }
 
-// Function to initialize floating elements animation
+/**
+ * Initialise l'animation des éléments flottants
+ */
 function initFloatingElements() {
-  // Select all decorative elements
+  // Sélectionner tous les éléments décoratifs
   const floatingElements = document.querySelectorAll('.decorative-element');
   
-  // If no elements, return
+  // Si aucun élément, retourner
   if (!floatingElements.length) return;
   
-  // Add random animation properties to each element
+  // Ajouter des propriétés d'animation aléatoires à chaque élément
   floatingElements.forEach((element, index) => {
-    // Set random animation duration between 6 and 12 seconds
+    // Définir une durée d'animation aléatoire entre 6 et 12 secondes
     const duration = 6 + Math.random() * 6;
     
-    // Set random animation delay
+    // Définir un délai d'animation aléatoire
     const delay = Math.random() * 5;
     
-    // Apply animation properties
+    // Appliquer les propriétés d'animation
     element.style.animationDuration = `${duration}s`;
     element.style.animationDelay = `${delay}s`;
     
-    // Alternate animation direction
+    // Alterner la direction de l'animation
     if (index % 2 === 0) {
       element.style.animationDirection = 'alternate';
     }
   });
 }
 
-// Function to initialize menu item animations
-function initMenuItemAnimations() {
-  const menuItems = document.querySelectorAll('.menu-item');
+/**
+ * Initialise l'animation de l'effet de pluie de sucre
+ */
+function initSugarRainAnimation() {
+  // Éléments DOM pour l'effet de pluie de sucre
+  const sugarRainContainer = document.getElementById('sugarRainContainer');
+  const discoverMenuBtn = document.getElementById('discoverMenuBtn');
+  const heroSection = document.getElementById('hero');
   
-  if (!menuItems.length) return;
+  if (!sugarRainContainer || !heroSection) return;
   
-  // Use IntersectionObserver to trigger animations
-  if ('IntersectionObserver' in window) {
-    const menuObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          // Add staggered animation delay
-          setTimeout(() => {
-            entry.target.classList.add('animate');
-          }, index * 100);
-          
-          // Stop observing after animation is triggered
-          menuObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      root: null,
-      threshold: 0.1,
-      rootMargin: '0px'
-    });
+  // Variable pour suivre l'état de la cascade
+  let isCascading = false;
+  
+  // Fonction pour créer une particule de sucre
+  function createSugarParticle(x, y, size = null, duration = null) {
+    const particle = document.createElement('div');
+    particle.classList.add('sugar-particle');
     
-    // Observe all menu items
-    menuItems.forEach(item => {
-      menuObserver.observe(item);
-    });
-  } else {
-    // Fallback for browsers that don't support IntersectionObserver
-    menuItems.forEach((item, index) => {
+    // Taille aléatoire si non spécifiée
+    const particleSize = size || Math.random() * 4 + 1;
+    particle.style.width = `${particleSize}px`;
+    particle.style.height = `${particleSize}px`;
+    
+    // Position
+    particle.style.left = `${x}px`;
+    particle.style.top = `${y}px`;
+    
+    // Durée de chute aléatoire si non spécifiée
+    const fallDuration = duration || Math.random() * 3 + 2;
+    particle.style.animation = `sugar-fall ${fallDuration}s linear forwards`;
+    
+    // Ajouter au conteneur
+    sugarRainContainer.appendChild(particle);
+    
+    // Supprimer après l'animation
+    setTimeout(() => {
+      particle.remove();
+    }, fallDuration * 1000);
+  }
+  
+  // Fonction pour créer l'effet de rideau de sucre
+  function createSugarCurtain() {
+    // Créer l'élément de rideau s'il n'existe pas
+    let sugarCurtain = document.querySelector('.sugar-curtain');
+    if (!sugarCurtain) {
+      sugarCurtain = document.createElement('div');
+      sugarCurtain.classList.add('sugar-curtain');
+      sugarRainContainer.appendChild(sugarCurtain);
+    }
+    
+    // Activer l'animation
+    sugarCurtain.classList.remove('active');
+    // Force reflow
+    void sugarCurtain.offsetWidth;
+    sugarCurtain.classList.add('active');
+  }
+  
+  // Fonction pour créer une cascade de sucre intense
+  function createSugarCascade() {
+    if (isCascading) return;
+    isCascading = true;
+    
+    // Activer l'effet de rideau
+    createSugarCurtain();
+    
+    // Créer une pluie dense de particules
+    const screenWidth = window.innerWidth;
+    
+    // Créer beaucoup de particules
+    for (let i = 0; i < 600; i++) {
       setTimeout(() => {
-        item.classList.add('animate');
-      }, index * 100);
+        const posX = Math.random() * screenWidth;
+        const posY = Math.random() * 100 - 100; // Au-dessus de l'écran
+        const size = Math.random() * 6 + 1; // Tailles variées
+        const duration = Math.random() * 4 + 3; // Chute plus lente
+        
+        createSugarParticle(posX, posY, size, duration);
+      }, Math.random() * 2000); // Étalées sur 2 secondes
+    }
+    
+    // Réinitialiser l'état après un délai
+    setTimeout(() => {
+      isCascading = false;
+    }, 2000);
+  }
+  
+  // Déclencher l'effet de pluie dès le chargement de la page (si la section hero est visible)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        createSugarCascade();
+        // Arrêter d'observer après le premier déclenchement
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+  
+  observer.observe(heroSection);
+  
+  // Déclencher l'effet de pluie au clic sur le bouton "DÉCOUVRIR LE MENU"
+  if (discoverMenuBtn) {
+    discoverMenuBtn.addEventListener('click', function(e) {
+      // Ne pas empêcher le comportement par défaut pour permettre le défilement jusqu'à la section menu
+      createSugarCascade();
     });
   }
 }
 
-// Create shine effect on store stripe
+/**
+ * Crée un effet de brillance sur la bande du magasin
+ */
 function createShineEffect() {
   const storeStripe = document.querySelector('.store-stripe');
   
   if (!storeStripe) return;
   
-  // Create shine element
+  // Créer l'élément de brillance
   const shine = document.createElement('div');
   shine.classList.add('stripe-shine');
   
   storeStripe.appendChild(shine);
   
-  // Animate shine effect
+  // Animer l'effet de brillance
   function animateShine() {
     shine.style.left = '-100%';
     shine.style.transition = 'none';
@@ -162,23 +247,20 @@ function createShineEffect() {
     }, 100);
   }
   
-  // Trigger shine animation
+  // Déclencher l'animation de brillance
   animateShine();
   setInterval(animateShine, 5000);
 }
 
-// Initialize animations when page is resized
-window.addEventListener('resize', () => {
-  // Re-initialize relevant animations if needed
-});
-
-// Initialize animation for scroll indicator
+/**
+ * Initialise l'animation pour l'indicateur de défilement
+ */
 function initScrollIndicator() {
   const scrollIndicator = document.querySelector('.scroll-indicator');
   
   if (!scrollIndicator) return;
   
-  // Hide scroll indicator when user scrolls
+  // Masquer l'indicateur de défilement lorsque l'utilisateur défile
   window.addEventListener('scroll', () => {
     if (window.pageYOffset > 100) {
       scrollIndicator.classList.add('hidden');
@@ -188,25 +270,30 @@ function initScrollIndicator() {
   });
 }
 
-// Function to create animated background shapes
+/**
+ * Crée des formes d'arrière-plan animées
+ */
 function createBackgroundShapes() {
+  // Vérifier si le conteneur existe déjà
+  if (document.querySelector('.background-shapes')) return;
+  
   const shapesContainer = document.createElement('div');
   shapesContainer.classList.add('background-shapes');
   
-  // Define shape colors
+  // Définir les couleurs des formes
   const colors = ['#7B57B2', '#4BBFBB', '#FFC72C', '#E63462'];
   
-  // Create shapes
-  for (let i = 0; i < 15; i++) {
+  // Créer les formes
+  for (let i = 0; i < 12; i++) {
     const shape = document.createElement('div');
     shape.classList.add('bg-shape');
     
-    // Randomize shape properties
+    // Randomiser les propriétés des formes
     const size = 30 + Math.random() * 70;
     const color = colors[Math.floor(Math.random() * colors.length)];
     const isCircle = Math.random() > 0.5;
     
-    // Apply shape styles
+    // Appliquer les styles de forme
     shape.style.width = `${size}px`;
     shape.style.height = `${size}px`;
     shape.style.backgroundColor = color;
@@ -217,13 +304,32 @@ function createBackgroundShapes() {
     shape.style.borderRadius = isCircle ? '50%' : '20%';
     shape.style.transform = `rotate(${Math.random() * 360}deg)`;
     
-    // Apply animation properties
+    // Appliquer les propriétés d'animation
     shape.style.animationDuration = `${20 + Math.random() * 40}s`;
     shape.style.animationDelay = `${Math.random() * 10}s`;
     
     shapesContainer.appendChild(shape);
   }
   
-  // Add shapes container to body
-  document.body.appendChild(shapesContainer);
+  // Ajouter le conteneur des formes aux sections appropriées
+  const sections = [
+    document.querySelector('.menu-section'),
+    document.querySelector('.gallery-section')
+  ];
+  
+  sections.forEach(section => {
+    if (section) {
+      const clonedContainer = shapesContainer.cloneNode(true);
+      clonedContainer.style.position = 'absolute';
+      clonedContainer.style.top = '0';
+      clonedContainer.style.left = '0';
+      clonedContainer.style.width = '100%';
+      clonedContainer.style.height = '100%';
+      clonedContainer.style.overflow = 'hidden';
+      clonedContainer.style.pointerEvents = 'none';
+      clonedContainer.style.zIndex = '0';
+      
+      section.insertBefore(clonedContainer, section.firstChild);
+    }
+  });
 }
