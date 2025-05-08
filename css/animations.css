@@ -1,6 +1,36 @@
-/* Animations for City Crêpe */
+/* 
+ * City Crêpe - Animations
+ * Contient toutes les animations et effets visuels du site
+ */
 
-/* Logo pulse animation */
+/* ====================================================
+   ANIMATIONS GLOBALES
+   ==================================================== */
+
+/* Animation d'entrée pour les sections */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.4s; }
+section:nth-child(4) { animation-delay: 0.6s; }
+section:nth-child(5) { animation-delay: 0.8s; }
+section:nth-child(6) { animation-delay: 1s; }
+
+/* Animation de pulsation pour le logo */
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -17,22 +47,24 @@
   animation: pulse 3s ease-in-out infinite;
 }
 
-/* Store stripe shine animation */
-@keyframes stripe-shine {
+/* Animation du bouton CTA */
+@keyframes button-glow {
   0% {
-    background-position: 0% 0%;
+    box-shadow: 0 4px 15px rgba(123, 87, 178, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(123, 87, 178, 0.4);
   }
   100% {
-    background-position: 200% 0%;
+    box-shadow: 0 4px 15px rgba(123, 87, 178, 0.2);
   }
 }
 
-.store-stripe {
-  background-size: 200% 100%;
-  animation: stripe-shine 15s linear infinite;
+.cta-button:hover {
+  animation: button-glow 2s infinite;
 }
 
-/* Decorative elements animations */
+/* Animation pour les éléments décoratifs */
 @keyframes float {
   0% {
     transform: translateY(0) rotate(0);
@@ -58,17 +90,85 @@
   animation-delay: 2s;
 }
 
-/* Menu item hover animation */
-.menu-item:hover {
-  animation: wiggle 0.5s ease-in-out;
+/* ====================================================
+   ANIMATIONS HERO
+   ==================================================== */
+
+/* Animation pour la pluie de sucre */
+@keyframes sugar-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
+.sugar-particle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sugar-fall linear forwards;
+}
+
+/* Animation pour le rideau de sucre */
+@keyframes sugar-pour {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(-90%);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+.sugar-curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.7) 20%,
+      rgba(255, 255, 255, 0.4) 40%,
+      rgba(255, 255, 255, 0.2) 60%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sugar-curtain.active {
+  animation: sugar-pour 2s ease-in forwards;
+}
+
+/* ====================================================
+   ANIMATIONS MENU
+   ==================================================== */
+
+/* Animation au survol des items du menu */
 @keyframes wiggle {
   0% { transform: rotate(-2deg); }
   25% { transform: rotate(3deg) translateY(-5px); }
   50% { transform: rotate(-3deg) translateY(-8px); }
   75% { transform: rotate(2deg) translateY(-10px); }
   100% { transform: rotate(0deg) translateY(-10px); }
+}
+
+.menu-item:hover {
+  animation: wiggle 0.5s ease-in-out;
 }
 
 .menu-item:nth-child(even):hover {
@@ -83,8 +183,8 @@
   100% { transform: rotate(0deg) translateY(-10px); }
 }
 
-/* Fade in animation for page sections */
-@keyframes fadeIn {
+/* Animation d'apparition des items de menu */
+@keyframes menuItemFadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -95,69 +195,71 @@
   }
 }
 
-section {
+.menu-item {
+  animation: menuItemFadeIn 0.5s ease forwards;
   opacity: 0;
-  animation: fadeIn 1s ease forwards;
 }
 
-section:nth-child(2) { animation-delay: 0.2s; }
-section:nth-child(3) { animation-delay: 0.4s; }
-section:nth-child(4) { animation-delay: 0.6s; }
-section:nth-child(5) { animation-delay: 0.8s; }
-section:nth-child(6) { animation-delay: 1s; }
-section:nth-child(7) { animation-delay: 1.2s; }
+/* ====================================================
+   ANIMATIONS TÉMOIGNAGES
+   ==================================================== */
 
-/* Button hover animation */
-@keyframes button-glow {
+/* Animation de flottement pour les cartes de témoignage */
+@keyframes float {
   0% {
-    box-shadow: 0 4px 15px rgba(123, 87, 178, 0.2);
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(0.5deg);
   }
   50% {
-    box-shadow: 0 8px 25px rgba(123, 87, 178, 0.4);
+    transform: translateY(0px) rotate(-0.5deg);
+  }
+  75% {
+    transform: translateY(10px) rotate(0.5deg);
   }
   100% {
-    box-shadow: 0 4px 15px rgba(123, 87, 178, 0.2);
+    transform: translateY(0px) rotate(0deg);
   }
 }
 
-.cta-button:hover {
-  animation: button-glow 2s infinite;
-}
+/* ====================================================
+   ANIMATIONS GALERIE
+   ==================================================== */
 
-/* Form input focus animations */
-@keyframes input-focus {
+/* Animation d'entrée style polaroid pour la galerie */
+@keyframes polaroid-in {
   0% {
-    border-color: var(--primary);
-  }
-  50% {
-    border-color: var(--turquoise);
-  }
-  100% {
-    border-color: var(--primary);
-  }
-}
-
-.form-group input:focus, .form-group textarea:focus {
-  animation: input-focus 3s infinite;
-}
-
-/* Mobile menu animation */
-@keyframes menu-slide-in {
-  from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: scale(0.8) rotate(var(--rotation));
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1) rotate(var(--rotation));
   }
 }
 
-.nav-menu.active {
-  animation: menu-slide-in 0.3s ease-out forwards;
+.gallery-item {
+  --rotation: -3deg;
+  animation: polaroid-in 0.5s ease-out forwards;
+  opacity: 0;
 }
 
-/* Bubble animations for custom section background */
+.gallery-item:nth-child(even) {
+  --rotation: 3deg;
+}
+
+.gallery-item:nth-child(2) { animation-delay: 0.1s; }
+.gallery-item:nth-child(3) { animation-delay: 0.2s; }
+.gallery-item:nth-child(4) { animation-delay: 0.3s; }
+.gallery-item:nth-child(5) { animation-delay: 0.4s; }
+.gallery-item:nth-child(6) { animation-delay: 0.5s; }
+
+/* ====================================================
+   ANIMATIONS DÉCORATIVES
+   ==================================================== */
+
+/* Animation pour les bulles dans la section custom */
 @keyframes bubble-float {
   0% {
     transform: translateY(0) translateX(0) scale(1);
@@ -181,34 +283,7 @@ section:nth-child(7) { animation-delay: 1.2s; }
   animation-delay: var(--delay);
 }
 
-/* Gallery item animation */
-@keyframes polaroid-in {
-  0% {
-    opacity: 0;
-    transform: scale(0.8) rotate(var(--rotation));
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(var(--rotation));
-  }
-}
-
-.gallery-item {
-  --rotation: -3deg;
-  animation: polaroid-in 0.5s ease-out forwards;
-}
-
-.gallery-item:nth-child(even) {
-  --rotation: 3deg;
-}
-
-.gallery-item:nth-child(2) { animation-delay: 0.1s; }
-.gallery-item:nth-child(3) { animation-delay: 0.2s; }
-.gallery-item:nth-child(4) { animation-delay: 0.3s; }
-.gallery-item:nth-child(5) { animation-delay: 0.4s; }
-.gallery-item:nth-child(6) { animation-delay: 0.5s; }
-
-/* Sprinkle decorations animation */
+/* Animation pour les confettis décoratifs */
 @keyframes sprinkle-rotate {
   0% {
     transform: rotate(0deg);
@@ -228,7 +303,44 @@ section:nth-child(7) { animation-delay: 1.2s; }
   animation-delay: var(--delay);
 }
 
-/* Loading animation for form submission */
+/* ====================================================
+   ANIMATIONS UI
+   ==================================================== */
+
+/* Animation du menu mobile */
+@keyframes menu-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-menu.active {
+  animation: menu-slide-in 0.3s ease-out forwards;
+}
+
+/* Animation du formulaire */
+@keyframes input-focus {
+  0% {
+    border-color: var(--primary);
+  }
+  50% {
+    border-color: var(--turquoise);
+  }
+  100% {
+    border-color: var(--primary);
+  }
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  animation: input-focus 3s infinite;
+}
+
+/* Animation de chargement pour le formulaire */
 @keyframes loading-dots {
   0%, 20% {
     opacity: 0;
@@ -262,7 +374,7 @@ section:nth-child(7) { animation-delay: 1.2s; }
   animation-delay: 0.4s;
 }
 
-/* Success check animation */
+/* Animation de la coche de succès */
 @keyframes success-check {
   0% {
     transform: scale(0);
@@ -281,7 +393,7 @@ section:nth-child(7) { animation-delay: 1.2s; }
   animation: success-check 0.5s ease-out forwards;
 }
 
-/* Page transition animation */
+/* Animation de transition de page */
 @keyframes page-transition-out {
   0% {
     opacity: 1;

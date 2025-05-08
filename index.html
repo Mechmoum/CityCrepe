@@ -7,9 +7,13 @@
   <title>City Crêpe - Délicieuses crêpes gourmandes</title>
   <meta name="description"
     content="City Crêpe, des crêpes gourmandes et instagrammables au cœur de la ville. Découvrez notre menu de crêpes sucrées et salées.">
+
+  <!-- Feuilles de style -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Polices Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -18,12 +22,12 @@
 </head>
 
 <body>
+  <!-- HEADER -->
   <header id="header">
     <div class="header-content">
       <div class="logo">
         <a href="#"><img src="assets/images/logo.png" alt="City Crêpe Logo"></a>
       </div>
-      <!-- Section à modifier dans le nav du header -->
       <nav>
         <button class="menu-toggle" aria-label="Menu">
           <span></span>
@@ -34,7 +38,7 @@
           <li><a href="#menu">MENU</a></li>
           <li><a href="#about">À PROPOS</a></li>
           <li><a href="#gallery">GALERIE</a></li>
-          <li><a href="#testimonials">Avis</a></li>
+          <li><a href="#testimonials">AVIS</a></li>
           <li><a href="#contact">CONTACT</a></li>
         </ul>
       </nav>
@@ -42,8 +46,8 @@
   </header>
 
   <main>
+    <!-- SECTION HERO -->
     <section id="hero" class="hero-section">
-      <!-- Conteneur pour l'effet de pluie de sucre -->
       <div class="sugar-rain-container" id="sugarRainContainer"></div>
       <div class="hero-content">
         <h1>DES CRÊPES GOURMANDES ET CUTE</h1>
@@ -52,7 +56,7 @@
       </div>
     </section>
 
-
+    <!-- SECTION MENU -->
     <section id="menu" class="menu-section">
       <div class="container">
         <h2>NOTRE MENU</h2>
@@ -68,9 +72,7 @@
         </div>
       </div>
     </section>
-
-    <!-- Section Témoignages avec images et icônes intégrées -->
-
+    <!-- SECTION TESTIMONIALS -->
     <section id="testimonials" class="testimonials-section">
       <div class="container">
         <h2>CE QUE DISENT NOS CLIENTS</h2>
@@ -79,26 +81,34 @@
           <div class="testimonial-card">
             <div class="testimonial-content">
               <div class="testimonial-header">
-                <!-- Photo de profil -->
-                <div class="author-image">
-                  <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="25" cy="25" r="25" fill="#f8e1f4" />
-                    <circle cx="25" cy="20" r="8" fill="#e91e63" />
-                    <path d="M25,28 C17,28 10,32 10,40 L40,40 C40,32 33,28 25,28 Z" fill="#e91e63" />
-                  </svg>
-                </div>
-                <!-- Infos auteur et date -->
-                <div class="author-info">
-                  <h4 class="author-name">Sophia K.</h4>
-                  <p class="review-date">2 jours ago</p>
+                <!-- Photo de profil et nom côte à côte -->
+                <div class="author-profile">
+                  <div class="author-image">
+                    <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="25" cy="25" r="25" fill="#f8e1f4" />
+                      <circle cx="25" cy="20" r="8" fill="#e91e63" />
+                      <path d="M25,28 C17,28 10,32 10,40 L40,40 C40,32 33,28 25,28 Z" fill="#e91e63" />
+                    </svg>
+                  </div>
+                  <div class="author-info">
+                    <h4 class="author-name">Naydia A.</h4>
+                  </div>
                 </div>
                 <!-- Logo Google -->
                 <div class="review-source">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-                    <path d="M22.0183,10.2228h-9.9961v3.7178h5.7178a4.8658,4.8658,0,0,1-2.1099,3.1935l-.0193.1292,3.0659,2.3682.2124.0214a9.7569,9.7569,0,0,0,2.9588-7.421A9.7678,9.7678,0,0,0,21.48,10.2446l.5381-.0214" fill="#4285f4"/>
-                    <path d="M12.0222,21.9999a9.5583,9.5583,0,0,0,6.6292-2.4188l-3.259-2.5188a5.9652,5.9652,0,0,1-3.3702.9746,5.9538,5.9538,0,0,1-5.6321-4.1157l-.1164.0098L3.06,16.3682l-.04.1216A9.95,9.95,0,0,0,12.0222,22Z" fill="#34a853"/>
-                    <path d="M6.3901,13.9211a6.0558,6.0558,0,0,1-.3282-1.9211,6.3764,6.3764,0,0,1,.3184-1.9209l-.0056-.1292L3.0936,7.5818l-.1008.0482a9.9706,9.9706,0,0,0,0,8.9398l3.3969-2.6487" fill="#fbbc05"/>
-                    <path d="M12.0222,7.8843a5.4481,5.4481,0,0,1,3.8267,1.4915l2.8911-2.8058A9.5674,9.5674,0,0,0,12.0222,2a9.95,9.95,0,0,0-8.9624,5.63l3.3969,2.6487a5.9671,5.9671,0,0,1,5.6321-4.1158" fill="#eb4335"/>
+                    <path
+                      d="M22.0183,10.2228h-9.9961v3.7178h5.7178a4.8658,4.8658,0,0,1-2.1099,3.1935l-.0193.1292,3.0659,2.3682.2124.0214a9.7569,9.7569,0,0,0,2.9588-7.421A9.7678,9.7678,0,0,0,21.48,10.2446l.5381-.0214"
+                      fill="#4285f4" />
+                    <path
+                      d="M12.0222,21.9999a9.5583,9.5583,0,0,0,6.6292-2.4188l-3.259-2.5188a5.9652,5.9652,0,0,1-3.3702.9746,5.9538,5.9538,0,0,1-5.6321-4.1157l-.1164.0098L3.06,16.3682l-.04.1216A9.95,9.95,0,0,0,12.0222,22Z"
+                      fill="#34a853" />
+                    <path
+                      d="M6.3901,13.9211a6.0558,6.0558,0,0,1-.3282-1.9211,6.3764,6.3764,0,0,1,.3184-1.9209l-.0056-.1292L3.0936,7.5818l-.1008.0482a9.9706,9.9706,0,0,0,0,8.9398l3.3969-2.6487"
+                      fill="#fbbc05" />
+                    <path
+                      d="M12.0222,7.8843a5.4481,5.4481,0,0,1,3.8267,1.4915l2.8911-2.8058A9.5674,9.5674,0,0,0,12.0222,2a9.95,9.95,0,0,0-8.9624,5.63l3.3969,2.6487a5.9671,5.9671,0,0,1,5.6321-4.1158"
+                      fill="#eb4335" />
                   </svg>
                 </div>
               </div>
@@ -113,34 +123,44 @@
                 </div>
               </div>
               <!-- Texte du témoignage -->
-              <p class="testimonial-text">"Probably my best Michelin experience! Chef Tom and the team doing an incredible job!! The service was outstanding!"</p>
+              <p class="testimonial-text">"Super expérience chez City Crêpe ! Le personnel est accueillant, le service
+                rapide, et les crêpes sont délicieuses, bien garnies et savoureuses. Mention spéciale pour leur pâte à
+                crêpe, légère et bien cuite. L’endroit est propre et agréable "</p>
             </div>
           </div>
-    
+
           <!-- Témoignage 2 -->
           <div class="testimonial-card">
             <div class="testimonial-content">
               <div class="testimonial-header">
-                <!-- Photo de profil -->
-                <div class="author-image">
-                  <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="25" cy="25" r="25" fill="#e0f2f1" />
-                    <circle cx="25" cy="20" r="8" fill="#009688" />
-                    <path d="M25,28 C17,28 10,32 10,40 L40,40 C40,32 33,28 25,28 Z" fill="#009688" />
-                  </svg>
-                </div>
-                <!-- Infos auteur et date -->
-                <div class="author-info">
-                  <h4 class="author-name">Joe Lawson</h4>
-                  <p class="review-date">7 jours ago</p>
+                <!-- Photo de profil et nom côte à côte -->
+                <div class="author-profile">
+                  <div class="author-image">
+                    <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="25" cy="25" r="25" fill="#e0f2f1" />
+                      <circle cx="25" cy="20" r="8" fill="#009688" />
+                      <path d="M25,28 C17,28 10,32 10,40 L40,40 C40,32 33,28 25,28 Z" fill="#009688" />
+                    </svg>
+                  </div>
+                  <div class="author-info">
+                    <h4 class="author-name">Aissata Traore</h4>
+                  </div>
                 </div>
                 <!-- Logo Google -->
                 <div class="review-source">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-                    <path d="M22.0183,10.2228h-9.9961v3.7178h5.7178a4.8658,4.8658,0,0,1-2.1099,3.1935l-.0193.1292,3.0659,2.3682.2124.0214a9.7569,9.7569,0,0,0,2.9588-7.421A9.7678,9.7678,0,0,0,21.48,10.2446l.5381-.0214" fill="#4285f4"/>
-                    <path d="M12.0222,21.9999a9.5583,9.5583,0,0,0,6.6292-2.4188l-3.259-2.5188a5.9652,5.9652,0,0,1-3.3702.9746,5.9538,5.9538,0,0,1-5.6321-4.1157l-.1164.0098L3.06,16.3682l-.04.1216A9.95,9.95,0,0,0,12.0222,22Z" fill="#34a853"/>
-                    <path d="M6.3901,13.9211a6.0558,6.0558,0,0,1-.3282-1.9211,6.3764,6.3764,0,0,1,.3184-1.9209l-.0056-.1292L3.0936,7.5818l-.1008.0482a9.9706,9.9706,0,0,0,0,8.9398l3.3969-2.6487" fill="#fbbc05"/>
-                    <path d="M12.0222,7.8843a5.4481,5.4481,0,0,1,3.8267,1.4915l2.8911-2.8058A9.5674,9.5674,0,0,0,12.0222,2a9.95,9.95,0,0,0-8.9624,5.63l3.3969,2.6487a5.9671,5.9671,0,0,1,5.6321-4.1158" fill="#eb4335"/>
+                    <path
+                      d="M22.0183,10.2228h-9.9961v3.7178h5.7178a4.8658,4.8658,0,0,1-2.1099,3.1935l-.0193.1292,3.0659,2.3682.2124.0214a9.7569,9.7569,0,0,0,2.9588-7.421A9.7678,9.7678,0,0,0,21.48,10.2446l.5381-.0214"
+                      fill="#4285f4" />
+                    <path
+                      d="M12.0222,21.9999a9.5583,9.5583,0,0,0,6.6292-2.4188l-3.259-2.5188a5.9652,5.9652,0,0,1-3.3702.9746,5.9538,5.9538,0,0,1-5.6321-4.1157l-.1164.0098L3.06,16.3682l-.04.1216A9.95,9.95,0,0,0,12.0222,22Z"
+                      fill="#34a853" />
+                    <path
+                      d="M6.3901,13.9211a6.0558,6.0558,0,0,1-.3282-1.9211,6.3764,6.3764,0,0,1,.3184-1.9209l-.0056-.1292L3.0936,7.5818l-.1008.0482a9.9706,9.9706,0,0,0,0,8.9398l3.3969-2.6487"
+                      fill="#fbbc05" />
+                    <path
+                      d="M12.0222,7.8843a5.4481,5.4481,0,0,1,3.8267,1.4915l2.8911-2.8058A9.5674,9.5674,0,0,0,12.0222,2a9.95,9.95,0,0,0-8.9624,5.63l3.3969,2.6487a5.9671,5.9671,0,0,1,5.6321-4.1158"
+                      fill="#eb4335" />
                   </svg>
                 </div>
               </div>
@@ -155,34 +175,44 @@
                 </div>
               </div>
               <!-- Texte du témoignage -->
-              <p class="testimonial-text">"Modern European cuisine with a light and zesty touch to the traditional. Worth a stop for special celebrations!"</p>
+              <p class="testimonial-text">"Très bonne expérience chez City Crêpe ! Les bubble waffle étaient
+                délicieuses, bien garnies et servies avec soin. J’ai beaucoup aimé ce qu’on m’a servi, tout était
+                savoureux. Je reviendrai avec plaisir !"</p>
             </div>
           </div>
-    
+
           <!-- Témoignage 3 -->
           <div class="testimonial-card">
             <div class="testimonial-content">
               <div class="testimonial-header">
-                <!-- Photo de profil -->
-                <div class="author-image">
-                  <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="25" cy="25" r="25" fill="#f3e5f5" />
-                    <circle cx="25" cy="20" r="8" fill="#9c27b0" />
-                    <path d="M25,28 C17,28 10,32 10,40 L40,40 C40,32 33,28 25,28 Z" fill="#9c27b0" />
-                  </svg>
-                </div>
-                <!-- Infos auteur et date -->
-                <div class="author-info">
-                  <h4 class="author-name">Lori Coleman</h4>
-                  <p class="review-date">3 jours ago</p>
+                <!-- Photo de profil et nom côte à côte -->
+                <div class="author-profile">
+                  <div class="author-image">
+                    <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="25" cy="25" r="25" fill="#f3e5f5" />
+                      <circle cx="25" cy="20" r="8" fill="#9c27b0" />
+                      <path d="M25,28 C17,28 10,32 10,40 L40,40 C40,32 33,28 25,28 Z" fill="#9c27b0" />
+                    </svg>
+                  </div>
+                  <div class="author-info">
+                    <h4 class="author-name">Marwane El ouali</h4>
+                  </div>
                 </div>
                 <!-- Logo Google -->
                 <div class="review-source">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-                    <path d="M22.0183,10.2228h-9.9961v3.7178h5.7178a4.8658,4.8658,0,0,1-2.1099,3.1935l-.0193.1292,3.0659,2.3682.2124.0214a9.7569,9.7569,0,0,0,2.9588-7.421A9.7678,9.7678,0,0,0,21.48,10.2446l.5381-.0214" fill="#4285f4"/>
-                    <path d="M12.0222,21.9999a9.5583,9.5583,0,0,0,6.6292-2.4188l-3.259-2.5188a5.9652,5.9652,0,0,1-3.3702.9746,5.9538,5.9538,0,0,1-5.6321-4.1157l-.1164.0098L3.06,16.3682l-.04.1216A9.95,9.95,0,0,0,12.0222,22Z" fill="#34a853"/>
-                    <path d="M6.3901,13.9211a6.0558,6.0558,0,0,1-.3282-1.9211,6.3764,6.3764,0,0,1,.3184-1.9209l-.0056-.1292L3.0936,7.5818l-.1008.0482a9.9706,9.9706,0,0,0,0,8.9398l3.3969-2.6487" fill="#fbbc05"/>
-                    <path d="M12.0222,7.8843a5.4481,5.4481,0,0,1,3.8267,1.4915l2.8911-2.8058A9.5674,9.5674,0,0,0,12.0222,2a9.95,9.95,0,0,0-8.9624,5.63l3.3969,2.6487a5.9671,5.9671,0,0,1,5.6321-4.1158" fill="#eb4335"/>
+                    <path
+                      d="M22.0183,10.2228h-9.9961v3.7178h5.7178a4.8658,4.8658,0,0,1-2.1099,3.1935l-.0193.1292,3.0659,2.3682.2124.0214a9.7569,9.7569,0,0,0,2.9588-7.421A9.7678,9.7678,0,0,0,21.48,10.2446l.5381-.0214"
+                      fill="#4285f4" />
+                    <path
+                      d="M12.0222,21.9999a9.5583,9.5583,0,0,0,6.6292-2.4188l-3.259-2.5188a5.9652,5.9652,0,0,1-3.3702.9746,5.9538,5.9538,0,0,1-5.6321-4.1157l-.1164.0098L3.06,16.3682l-.04.1216A9.95,9.95,0,0,0,12.0222,22Z"
+                      fill="#34a853" />
+                    <path
+                      d="M6.3901,13.9211a6.0558,6.0558,0,0,1-.3282-1.9211,6.3764,6.3764,0,0,1,.3184-1.9209l-.0056-.1292L3.0936,7.5818l-.1008.0482a9.9706,9.9706,0,0,0,0,8.9398l3.3969-2.6487"
+                      fill="#fbbc05" />
+                    <path
+                      d="M12.0222,7.8843a5.4481,5.4481,0,0,1,3.8267,1.4915l2.8911-2.8058A9.5674,9.5674,0,0,0,12.0222,2a9.95,9.95,0,0,0-8.9624,5.63l3.3969,2.6487a5.9671,5.9671,0,0,1,5.6321-4.1158"
+                      fill="#eb4335" />
                   </svg>
                 </div>
               </div>
@@ -197,33 +227,37 @@
                 </div>
               </div>
               <!-- Texte du témoignage -->
-              <p class="testimonial-text">"Incredible food with an fantastic service team, everyone on the service team moved as one as the dishes and drinks are being served."</p>
+              <p class="testimonial-text">"Excellente découverte chez City Crêpe ! L’accueil est chaleureux, l’équipe
+                souriante et aux petits soins. Les crêpes sont généreuses, bien présentées et vraiment savoureuses."</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+
+    <!-- SECTION ABOUT -->
     <section id="about" class="about-section">
       <div class="container">
         <h2>NOTRE HISTOIRE</h2>
         <div class="about-content">
           <div class="about-image">
-            <img src="assets/images/city crépe.jpg" alt="L'équipe City Crêpe">
+            <img src="assets/images/gallery/city crépe.jpg" alt="L'équipe City Crêpe">
           </div>
           <div class="about-text">
             <p>Yacine, Franco-Tunisien au grand cœur, a longtemps travaillé comme brancardier à la Salpêtrière. Ce
-              parcours l’a marqué : plus que la routine, ce sont les rencontres humaines qui le nourrissent.</p>
+              parcours l'a marqué : plus que la routine, ce sont les rencontres humaines qui le nourrissent.</p>
             <p>En 2021, avec peu de moyens mais une grande détermination, il décide de tout miser sur un rêve : créer un
-              lieu chaleureux, à son image. Il fonde City Crêpe sur l’avenue de Fontainebleau au Kremlin-Bicêtre, un
+              lieu chaleureux, à son image. Il fonde City Crêpe sur l'avenue de Fontainebleau au Kremlin-Bicêtre, un
               endroit authentique où se mêlent générosité, convivialité et saveurs sucrées-salées.</p>
-            <p>Plus qu’une crêperie, City Crêpe, c’est un lieu de partage, né de la résilience, des racines, et d’une
+            <p>Plus qu'une crêperie, City Crêpe, c'est un lieu de partage, né de la résilience, des racines, et d'une
               philosophie simple : donner le meilleur, avec amour et sincérité.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- SECTION GALLERY -->
     <section id="gallery" class="gallery-section">
       <div class="container">
         <h2>GALERIE</h2>
@@ -234,9 +268,8 @@
     </section>
   </main>
 
-  <!-- Footer City Crêpe correspondant à l'image partagée -->
+  <!-- FOOTER -->
   <footer id="contact" class="city-crepe-footer">
-
     <div class="footer-content">
       <!-- Colonne Logo et texte -->
       <div class="footer-col brand-col">
@@ -270,12 +303,10 @@
 
         <h3 class="footer-title contact-title">CONTACT</h3>
         <p class="footer-email">contact@citycrepe.fr</p>
-        <p class="footer-phone">+33 1 79 61 75 78</p>
+        <p class="footer-phone">01 79 61 75 78</p>
         <h3 class="footer-title hours-title">HORAIRES</h3>
         <p class="footer-hours">📅 Ouvert 7/7 | ⏰ 11h - 4h</p>
       </div>
-
-
 
       <!-- Colonne Newsletter et Social -->
       <div class="footer-col connect-col">
@@ -305,443 +336,10 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- Scripts -->
+  <script src="js/menu.js"></script>
   <script src="js/animations.js"></script>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Éléments DOM pour l'effet de pluie de sucre
-      const sugarRainContainer = document.getElementById('sugarRainContainer');
-      const discoverMenuBtn = document.getElementById('discoverMenuBtn');
-      const heroSection = document.getElementById('hero');
-      
-      // Variable pour suivre l'état de la cascade
-      let isCascading = false;
-      
-      // Fonction pour créer une particule de sucre
-      function createSugarParticle(x, y, size = null, duration = null) {
-        const particle = document.createElement('div');
-        particle.classList.add('sugar-particle');
-        
-        // Taille aléatoire si non spécifiée
-        const particleSize = size || Math.random() * 4 + 1;
-        particle.style.width = `${particleSize}px`;
-        particle.style.height = `${particleSize}px`;
-        
-        // Position
-        particle.style.left = `${x}px`;
-        particle.style.top = `${y}px`;
-        
-        // Durée de chute aléatoire si non spécifiée
-        const fallDuration = duration || Math.random() * 3 + 2;
-        particle.style.animation = `sugar-fall ${fallDuration}s linear forwards`;
-        
-        // Ajouter au conteneur
-        sugarRainContainer.appendChild(particle);
-        
-        // Supprimer après l'animation
-        setTimeout(() => {
-          particle.remove();
-        }, fallDuration * 1000);
-      }
-      
-      // Fonction pour créer l'effet de rideau de sucre
-      function createSugarCurtain() {
-        // Créer l'élément de rideau s'il n'existe pas
-        let sugarCurtain = document.querySelector('.sugar-curtain');
-        if (!sugarCurtain) {
-          sugarCurtain = document.createElement('div');
-          sugarCurtain.classList.add('sugar-curtain');
-          sugarRainContainer.appendChild(sugarCurtain);
-        }
-        
-        // Activer l'animation
-        sugarCurtain.classList.remove('active');
-        // Force reflow
-        void sugarCurtain.offsetWidth;
-        sugarCurtain.classList.add('active');
-      }
-      
-      // Fonction pour créer une cascade de sucre intense
-      function createSugarCascade() {
-        if (isCascading) return;
-        isCascading = true;
-        
-        // Activer l'effet de rideau
-        createSugarCurtain();
-        
-        // Créer une pluie dense de particules
-        const screenWidth = window.innerWidth;
-        
-        // Créer beaucoup de particules
-        for (let i = 0; i < 800; i++) {
-          setTimeout(() => {
-            const posX = Math.random() * screenWidth;
-            const posY = Math.random() * 100 - 100; // Au-dessus de l'écran
-            const size = Math.random() * 6 + 1; // Tailles variées
-            const duration = Math.random() * 4 + 3; // Chute plus lente
-            
-            createSugarParticle(posX, posY, size, duration);
-          }, Math.random() * 2000); // Étalées sur 2 secondes
-        }
-        
-        // Réinitialiser l'état après un délai
-        setTimeout(() => {
-          isCascading = false;
-        }, 2000);
-      }
-      
-      // Déclencher l'effet de pluie dès le chargement de la page (si la section hero est visible)
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            createSugarCascade();
-            // Arrêter d'observer après le premier déclenchement
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.25 });
-      
-      observer.observe(heroSection);
-      
-      // Déclencher l'effet de pluie au clic sur le bouton "DÉCOUVRIR LE MENU"
-      discoverMenuBtn.addEventListener('click', function(e) {
-        // Ne pas empêcher le comportement par défaut pour permettre le défilement jusqu'à la section menu
-        createSugarCascade();
-      });
-    });
-  </script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
-
-<style>
-.compose-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 24px;
-  background: #00e1d4;
-  color: white;
-  font-weight: 500;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.compose-btn:hover {
-  background: #00c6bb;
-  transform: scale(1.03);
-  color: white;
-}
-
-.compose-icon {
-  font-size: 16px;
-}
-
-/* Styles pour l'effet de pluie de sucre */
-.sugar-rain-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.sugar-particle {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: sugar-fall linear forwards;
-}
-
-@keyframes sugar-fall {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-.sugar-curtain {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(255, 255, 255, 0.7) 20%,
-      rgba(255, 255, 255, 0.4) 40%,
-      rgba(255, 255, 255, 0.2) 60%,
-      rgba(255, 255, 255, 0.1) 80%,
-      rgba(255, 255, 255, 0) 100%
-  );
-  opacity: 0;
-  transform: translateY(-100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.sugar-curtain.active {
-  animation: sugar-pour 2s ease-in forwards;
-}
-
-@keyframes sugar-pour {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  10% {
-    transform: translateY(-90%);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-}
-
-/* Styles pour la section Témoignages */
-.testimonials-section {
-  padding: 80px 0;
-  background-color: #f9f9f9;
-  position: relative;
-  overflow: hidden;
-}
-
-.testimonials-section .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  position: relative;
-  z-index: 2;
-}
-
-.testimonials-section h2 {
-  text-align: center;
-  margin-bottom: 50px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 2rem;
-  color: #7B57B2;
-  position: relative;
-  display: block;
-}
-
-/* Animation de flottement pour les cartes */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.testimonial-card {
-  background-color: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.5s ease;
-  animation: float 8s ease-in-out infinite;
-  position: relative;
-}
-
-/* Animation différente pour chaque carte */
-.testimonial-card:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.testimonial-card:nth-child(2) {
-  animation-delay: 1s;
-}
-
-.testimonial-card:nth-child(3) {
-  animation-delay: 2s;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-10px) rotate(0.5deg);
-  }
-  50% {
-    transform: translateY(0px) rotate(-0.5deg);
-  }
-  75% {
-    transform: translateY(10px) rotate(0.5deg);
-  }
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-}
-
-.testimonial-card:hover {
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  z-index: 3;
-}
-
-.testimonial-content {
-  padding: 20px;
-}
-
-/* Style Google Reviews */
-.testimonial-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.author-image {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 12px;
-  flex-shrink: 0;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
-.author-image svg {
-  width: 100%;
-  height: 100%;
-}
-
-.author-info {
-  flex-grow: 1;
-}
-
-.author-name {
-  margin: 0;
-  font-weight: 600;
-  color: #333;
-  font-size: 0.95rem;
-  line-height: 1.2;
-}
-
-.review-date {
-  margin: 0;
-  font-size: 0.8rem;
-  color: #666;
-}
-
-.review-source {
-  margin-left: auto;
-}
-
-.testimonial-text {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #333;
-  margin-top: 12px;
-  margin-bottom: 0;
-}
-
-/* Système d'étoiles */
-.rating {
-  display: flex;
-  align-items: center;
-  margin-top: 8px;
-}
-
-.stars {
-  display: flex;
-}
-
-.star {
-  position: relative;
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  margin-right: 2px;
-}
-
-.star:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z' fill='%23D8D8D8'/%3E%3C/svg%3E");
-  background-size: contain;
-}
-
-.star.filled:before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z' fill='%23FFC107'/%3E%3C/svg%3E");
-}
-
-.star.half-filled:before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4V6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z' fill='%23FFC107'/%3E%3C/svg%3E");
-}
-
-/* Ajout d'un effet de profondeur en arrière-plan */
-.testimonials-section:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 0%, rgba(123, 87, 178, 0.1) 0%, rgba(123, 87, 178, 0) 70%);
-  z-index: 1;
-}
-
-/* Media queries pour la responsivité */
-@media (max-width: 992px) {
-  .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .testimonials-section h2 {
-    font-size: 1.75rem;
-  }
-  
-  .testimonial-card {
-    animation: none; /* Désactiver l'animation sur mobile */
-  }
-  
-  .testimonial-card:hover {
-    transform: translateY(-5px);
-  }
-}
-
-@media (max-width: 480px) {
-  .testimonial-content {
-    padding: 15px;
-  }
-  
-  .author-image {
-    width: 35px;
-    height: 35px;
-  }
-  
-  .author-name {
-    font-size: 0.9rem;
-  }
-  
-  .testimonial-text {
-    font-size: 0.9rem;
-  }
-}
-
-</style>  
